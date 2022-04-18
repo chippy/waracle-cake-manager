@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 @Entity
 @Table(name="Cake")
 public class Cake {
@@ -20,6 +22,7 @@ public class Cake {
 	private String title;
 	
 	@Column(name = "description")
+	@JsonAlias("desc")
 	private String description;
 	
 	@Column(name = "image")
@@ -47,5 +50,10 @@ public class Cake {
 	
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	@Override
+	public String toString() {
+		return "Cake [id=" + id + ", title=" + title + ", description=" + description + ", image=" + image + "]";
 	}
 }
