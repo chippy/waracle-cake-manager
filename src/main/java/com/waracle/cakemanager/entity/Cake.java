@@ -28,6 +28,10 @@ public class Cake {
 	@Column(name = "image")
 	private String image;
 	
+	public int getId() {
+		return id;
+	}
+	
 	public String getTitle() {
 		return title;
 	}

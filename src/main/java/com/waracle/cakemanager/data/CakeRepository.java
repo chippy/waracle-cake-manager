@@ -8,5 +8,5 @@ public interface CakeRepository {
 	
 	public List<Cake> findAll();
 	
-	public void add(Cake cake);
+	public Cake add(Cake cake);
 }

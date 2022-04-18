@@ -35,10 +35,12 @@ public class CakeRepositoryImpl implements CakeRepository {
 
 	@Override
 	@Transactional
-	public void add(Cake cake) {
+	public Cake add(Cake cake) {
 		
 		Session session = entityManager.unwrap(Session.class);
 		session.persist(cake);
+		
+		return cake;
 	}
 
 }
