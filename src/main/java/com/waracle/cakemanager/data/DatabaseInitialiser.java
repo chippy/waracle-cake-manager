@@ -37,10 +37,10 @@ public class DatabaseInitialiser {
 			logger.info("Deserializing cake JSON");
 			ObjectMapper mapper = new ObjectMapper();
 			List<Cake> cakes = mapper.readValue(inputStream, new TypeReference<List<Cake>>() {});
-			cakes.stream().forEach(cakeRepository::add);
+			cakes.forEach(cakeRepository::add);
 			
 			logger.info("Database now contains the following cakes: ");
-			cakeRepository.findAll().stream().forEach(c -> logger.info(c.toString()));
+			cakeRepository.findAll().forEach(c -> logger.info(c.toString()));
 			
 		} catch (Exception exception) {
 			logger.error("An error was encountered while initialising the database.", exception);
