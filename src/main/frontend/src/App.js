@@ -1,31 +1,20 @@
-import { useState, useEffect } from "react";
+import React from 'react';
 
-import Cake from "./Cake";
+import './App.css';
+
+import Header from './components/Header';
+import MainContent from './components/MainContent';
+import CakeList from './components/CakeList';
 
 function App() {
-  const [cakes, setCakes] = useState([]);
-
-  useEffect(() => {
-    async function fetchCakes() {
-      let response = await fetch("/cakes");
-      response = await response.json();
-      setCakes(response);
-    }
-
-    fetchCakes();
-  }, []);
-
-  const cakesJsx = cakes.map((cake) => {
-    return (
-      <Cake
-        title={cake.title}
-        description={cake.description}
-        image={cake.image}
-      />
-    );
-  });
-
-  return <div>{cakesJsx}</div>;
+  return (
+    <>
+      <Header />
+      <MainContent>
+        <CakeList />
+      </MainContent>
+    </>
+  );
 }
 
 export default App;
