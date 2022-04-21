@@ -1,12 +1,12 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import "./App.css";
+import './App.css';
 
-import Header from "./components/Header";
-import MainContent from "./components/MainContent";
-import AllCakes from "./components/AllCakes";
-import AddCakes from "./components/AddCakes";
+import Header from './components/Header';
+import MainContent from './components/MainContent';
+import AllCakes from './components/AllCakes';
+import AddCakes from './components/AddCakes';
 
 function App() {
   return (
@@ -14,8 +14,8 @@ function App() {
       <Header />
       <MainContent>
         <Routes>
-          <Route path="/" element={<AllCakes />} />
-          <Route path="/addcake" element={<AddCakes />} />
+          <Route path='/' element={<AllCakes />} />
+          <Route path='/addcake' element={<AddCakes />} />
         </Routes>
       </MainContent>
     </BrowserRouter>

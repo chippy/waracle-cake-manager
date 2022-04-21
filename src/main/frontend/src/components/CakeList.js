@@ -13,6 +13,6 @@ const CakeList = (props) => {
   });
 
   return <div>{cakesJsx}</div>;
-}
+};
 
 export default CakeList;

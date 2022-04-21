@@ -15,7 +15,7 @@ const AllCakes = () => {
     fetchCakes();
   }, []);
 
-  return <CakeList cakes={cakes} />
-}
+  return <CakeList cakes={cakes} />;
+};
 
 export default AllCakes;
