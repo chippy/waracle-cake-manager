@@ -44,9 +44,20 @@ const CakeForm = (props) => {
     setIsFormComplete(title.length > 0 && description.length > 0 && image.length > 0);
   }
 
+  const resetForm = () => {
+    setTitle('');
+    setDescription('');
+    setImage('');
+    setIsTitleValid(true);
+    setIsDescriptionValid(true);
+    setIsImageValid(true);
+    setIsFormComplete(false);
+  }
+
   const addCake = (event) => {
     event.preventDefault();
     props.onAddCake(title, description, image);
+    resetForm();
   }
 
   return (
