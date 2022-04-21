@@ -1,5 +1,7 @@
 package com.waracle.cakemanager.entity;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -60,4 +62,24 @@ public class Cake {
 	public String toString() {
 		return "Cake [id=" + id + ", title=" + title + ", description=" + description + ", image=" + image + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(description, id, image, title);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cake other = (Cake) obj;
+		return Objects.equals(description, other.description) && Objects.equals(id, other.id)
+				&& Objects.equals(image, other.image) && Objects.equals(title, other.title);
+	}
+	
+	
 }

@@ -43,4 +43,15 @@ public class CakeRepositoryImpl implements CakeRepository {
 		return cake;
 	}
 
+	@Override
+	@Transactional
+	public Cake getById(int id) {
+		Session session = entityManager.unwrap(Session.class);
+		Query<Cake> query = session.createQuery("FROM Cake C WHERE C.id = :cakeId", Cake.class);
+		
+		query.setParameter("cakeId", id);
+		Cake result = query.getSingleResult();
+		
+		return result;
+	}
 }

@@ -9,4 +9,6 @@ public interface CakeRepository {
 	public List<Cake> findAll();
 	
 	public Cake add(Cake cake);
+	
+	public Cake getById(int id);
 }
