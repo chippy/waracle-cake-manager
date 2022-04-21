@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import cake from '../images/portal-cake.jpg';
+import portalCake from '../images/portal-cake.jpg';
 
 const Cake = (props) => {
-  const replaceImage = (event) => {
-    event.target.src = cake;
-    event.target.alt = 'The cake is a lie.';
+  const [cakeImage, setCakeImage] = useState(props.image);
+
+  const replaceImage = () => {
+    setCakeImage(portalCake);
   };
 
   return (
@@ -12,8 +13,8 @@ const Cake = (props) => {
       <h1>{props.title}</h1>
       <p>{props.description}</p>
       <img
-        src={props.image}
-        alt={props.title}
+        src={cakeImage}
+        alt={props.description}
         className='cake-image'
         onError={replaceImage}
       />
