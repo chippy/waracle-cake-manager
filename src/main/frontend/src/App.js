@@ -6,7 +6,7 @@ import "./App.css";
 import Header from "./components/Header";
 import MainContent from "./components/MainContent";
 import AllCakes from "./components/AllCakes";
-import CakeForm from "./components/CakeForm";
+import AddCakes from "./components/AddCakes";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <MainContent>
         <Routes>
           <Route path="/" element={<AllCakes />} />
-          <Route path="/addcake" element={<CakeForm />} />
+          <Route path="/addcake" element={<AddCakes />} />
         </Routes>
       </MainContent>
     </BrowserRouter>

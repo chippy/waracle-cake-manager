@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CakeForm = () => {
+const CakeForm = (props) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
@@ -46,20 +46,7 @@ const CakeForm = () => {
 
   const addCake = (event) => {
     event.preventDefault();
-    let newCake = {
-      title: title,
-      description: description,
-      image: image
-    }
-
-    fetch("cakes", {
-      method: "POST",
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(newCake)
-    })
-    .then(response => response.json())
-    .then(data => console.log('Success: ', data))
-    .catch(error => console.log("Error: " + error));
+    props.onAddCake(title, description, image);
   }
 
   return (
