@@ -44,6 +44,24 @@ const CakeForm = () => {
     setIsFormComplete(title.length > 0 && description.length > 0 && image.length > 0);
   }
 
+  const addCake = (event) => {
+    event.preventDefault();
+    let newCake = {
+      title: title,
+      description: description,
+      image: image
+    }
+
+    fetch("cakes", {
+      method: "POST",
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(newCake)
+    })
+    .then(response => response.json())
+    .then(data => console.log('Success: ', data))
+    .catch(error => console.log("Error: " + error));
+  }
+
   return (
     <div class="ui centered fluid card">  
       <div class="header">
@@ -63,7 +81,7 @@ const CakeForm = () => {
             <label>Image</label>
             <input type="text" name="image" value={image} onChange={updateImage} onBlur={validateImage}/>
           </div>
-          <button type="submit" class="ui button blue" disabled={!isFormComplete}>Add Cake</button>
+          <button type="submit" class="ui button blue" disabled={!isFormComplete} onClick={addCake}>Add Cake</button>
         </form>
       </div>
     </div>
