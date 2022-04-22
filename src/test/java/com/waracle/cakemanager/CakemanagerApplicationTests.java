@@ -131,6 +131,11 @@ class CakemanagerApplicationTests {
 		assertEquals(newCake.getDescription(), cakeFromDatabase.getDescription());
 		assertEquals(newCake.getImage(), cakeFromDatabase.getImage());
 	}
+
+	@Test
+	void failingTest() {
+		fail();
+	}
 		
 	private String buildUrl(String resource) {
 		return "http://localhost:" + port + resource; 
