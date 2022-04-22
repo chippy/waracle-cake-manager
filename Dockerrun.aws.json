@@ -1,0 +1,16 @@
+// Dockerrun.aws.json
+
+{
+    "AWSEBDockerrunVersion": "1",
+    "Image": {
+        "Name": "chipples/waracle-cake-manager:latest",
+        "Update": "true"
+    },
+    "Ports": [
+        {
+            "HostPort": "80",
+            "ContainerPort": "8080"
+        }
+    ],
+    "Logging": "/var/log/nginx"
+}
