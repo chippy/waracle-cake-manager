@@ -22,9 +22,7 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Run tests with Maven
-      run: mvn test
-    - name: Build with Maven
+    - name: Build and test with Maven
       run: mvn clean install
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag waracle-cake-manager:$(date +%s)
