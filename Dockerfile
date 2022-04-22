@@ -11,4 +11,5 @@ WORKDIR /opt/app
 COPY ${JAR_FILE} app.jar
 
 # java -jar /opt/app/app.jar
+EXPOSE 8080
 ENTRYPOINT ["java","-jar","app.jar"]
