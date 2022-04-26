@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const CakeForm = (props) => {
   const [title, setTitle] = useState('');
@@ -10,40 +10,34 @@ const CakeForm = (props) => {
   const [isImageValid, setIsImageValid] = useState(true);
   const [isFormComplete, setIsFormComplete] = useState(false);
 
+  useEffect(() => {
+    setIsFormComplete(
+      title.length > 0 && description.length > 0 && image.length > 0
+    );
+  }, [title, description, image]);
+
   const updateTitle = (event) => {
     setTitle(event.target.value);
-    validateForm();
   };
 
   const validateTitle = (event) => {
     setIsTitleValid(event.target.value.length > 0);
-    validateForm();
   };
 
   const updateDescription = (event) => {
     setDescription(event.target.value);
-    validateForm();
   };
 
   const validateDescription = (event) => {
     setIsDescriptionValid(event.target.value.length > 0);
-    validateForm();
   };
 
   const updateImage = (event) => {
     setImage(event.target.value);
-    validateForm();
   };
 
   const validateImage = (event) => {
     setIsImageValid(event.target.value.length > 0);
-    validateForm();
-  };
-
-  const validateForm = () => {
-    setIsFormComplete(
-      title.length > 0 && description.length > 0 && image.length > 0
-    );
   };
 
   const resetForm = () => {
