@@ -48,7 +48,7 @@ class CakemanagerApplicationTests {
 	@Test
 	void cakeRepositoryContainsAllCakesFromJson() {
 		var allCakes = cakeRepository.findAll();
-		assertEquals(allCakes.size(), 20);
+		assertEquals(allCakes.size(), 20, "Incorrect number of cakes returned");
 	}
 	
 	@Test 
@@ -65,7 +65,7 @@ class CakemanagerApplicationTests {
 		
 		allCakes = cakeRepository.findAll();
 		
-		assertEquals(allCakes.size(), currentSize + 1);
+		assertEquals(allCakes.size(), currentSize + 1, "Incorrect number of cakes returned");
 	}
 	
 	@Test
@@ -78,9 +78,9 @@ class CakemanagerApplicationTests {
 		cakeRepository.add(newCake);
 		Cake cakeFromDatabase = cakeRepository.getById(newCake.getId());
 		
-		assertEquals(newCake.getTitle(), cakeFromDatabase.getTitle());
-		assertEquals(newCake.getDescription(), cakeFromDatabase.getDescription());
-		assertEquals(newCake.getImage(), cakeFromDatabase.getImage());
+		assertEquals(newCake.getTitle(), cakeFromDatabase.getTitle(), "Title of returned cake is incorrect");
+		assertEquals(newCake.getDescription(), cakeFromDatabase.getDescription(), "Description of returned cake is incorrect");
+		assertEquals(newCake.getImage(), cakeFromDatabase.getImage(), "Returned cake has incorrect image");
 	}
 	
 	@Test
@@ -99,8 +99,8 @@ class CakemanagerApplicationTests {
 		
 		List<Cake> cakesFromApi = response.getBody();
 				
-		assertEquals(allCakesFromDatabase.size(), cakesFromApi.size());
-		assertTrue(cakesFromApi.containsAll(allCakesFromDatabase));
+		assertEquals(allCakesFromDatabase.size(), cakesFromApi.size(), "Incorrect number of cakes returned");
+		assertTrue(cakesFromApi.containsAll(allCakesFromDatabase), "Cakes from database do not match cakes from API");
 	}
 	
 	@Test
@@ -121,15 +121,15 @@ class CakemanagerApplicationTests {
 			fail();
 		}
 		
-		assertEquals(response.getStatusCode(), HttpStatus.OK);
+		assertEquals(response.getStatusCode(), HttpStatus.OK, "Error response received from API");
 		
 		Cake cake = response.getBody();
 		
 		int newCakeId = cake.getId();
 		Cake cakeFromDatabase = cakeRepository.getById(newCakeId);
-		assertEquals(newCake.getTitle(), cakeFromDatabase.getTitle());
-		assertEquals(newCake.getDescription(), cakeFromDatabase.getDescription());
-		assertEquals(newCake.getImage(), cakeFromDatabase.getImage());
+		assertEquals(newCake.getTitle(), cakeFromDatabase.getTitle(), "Inserted cake has incorrect title");
+		assertEquals(newCake.getDescription(), cakeFromDatabase.getDescription(), "Inserted cake has incorrect description");
+		assertEquals(newCake.getImage(), cakeFromDatabase.getImage(), "Inserted cake has incorrect image");
 	}
 		
 	private String buildUrl(String resource) {
