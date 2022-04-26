@@ -1,6 +1,6 @@
 package com.waracle.cakemanager;
 
-public class PostCake {
+public class CakePostModel {
 	
 	private String title;
 	private String description;

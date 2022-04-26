@@ -105,14 +105,14 @@ class CakemanagerApplicationTests {
 	
 	@Test
 	void postToCakeControllerInsertsCake() {
-		PostCake newCake = new PostCake();
+		CakePostModel newCake = new CakePostModel();
 		newCake.setTitle("Test Cake");
 		newCake.setDescription("A Test Cake");
 		newCake.setImage("http://www.images.com/test-cake.jpg");
 		
 		TestRestTemplate restTemplate = new TestRestTemplate();
 		ResponseEntity<Cake> response = null;
-		HttpEntity<PostCake> cakeEntity = new HttpEntity<>(newCake);
+		HttpEntity<CakePostModel> cakeEntity = new HttpEntity<>(newCake);
 		
 		try {	
 			response = restTemplate.exchange(buildUrl("/cakes"), HttpMethod.POST, cakeEntity, new ParameterizedTypeReference<Cake>(){});
