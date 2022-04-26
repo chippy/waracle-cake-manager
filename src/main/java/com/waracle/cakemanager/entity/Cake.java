@@ -14,6 +14,14 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 @Entity
 @Table(name="Cake")
 public class Cake {
+	
+	public Cake() {}
+		
+	public Cake(String title, String description, String image) {
+		this.title = title;
+		this.description = description;
+		this.image = image;
+	}
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
