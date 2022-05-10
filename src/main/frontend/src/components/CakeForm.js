@@ -57,13 +57,13 @@ const CakeForm = (props) => {
   };
 
   return (
-    <div class='ui centered fluid card'>
-      <div class='header'>
+    <div className='ui centered fluid card'>
+      <div className='header'>
         <h1>Add a Cake</h1>
       </div>
-      <div class='content'>
-        <form class='ui form'>
-          <div class={`field ${isTitleValid ? '' : 'error'}`}>
+      <div className='content'>
+        <form className='ui form'>
+          <div className={`field ${isTitleValid ? '' : 'error'}`}>
             <label>Title</label>
             <input
               type='text'
@@ -73,7 +73,7 @@ const CakeForm = (props) => {
               onBlur={validateTitle}
             />
           </div>
-          <div class={`field ${isDescriptionValid ? '' : 'error'}`}>
+          <div className={`field ${isDescriptionValid ? '' : 'error'}`}>
             <label>Description</label>
             <input
               type='text'
@@ -83,7 +83,7 @@ const CakeForm = (props) => {
               onBlur={validateDescription}
             />
           </div>
-          <div class={`field ${isImageValid ? '' : 'error'}`}>
+          <div className={`field ${isImageValid ? '' : 'error'}`}>
             <label>Image</label>
             <input
               type='text'
@@ -95,7 +95,7 @@ const CakeForm = (props) => {
           </div>
           <button
             type='submit'
-            class='ui button blue'
+            className='ui button blue'
             disabled={!isFormComplete}
             onClick={addCake}
           >

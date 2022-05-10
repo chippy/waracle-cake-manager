@@ -31,7 +31,7 @@ const AddCakes = () => {
 
     return (
       <>
-        <div class='header'>Added Cakes:</div>
+        <div className='header'>Added Cakes:</div>
         <CakeList cakes={addedCakes} />
       </>
     );
